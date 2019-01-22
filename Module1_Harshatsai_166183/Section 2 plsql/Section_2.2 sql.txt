@@ -1,0 +1,29 @@
+2 a)
+SQL> ALTER TABLE EMPLOYEES ADD TITLE VARCHAR2(10);
+
+Table altered.
+
+SQL> desc EMPLOYEES
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_CODE                             NOT NULL NUMBER
+ EMPLOYEE_NAME                                      VARCHAR2(15)
+ DATE_OF_JOINING                                    DATE
+ EMPLOYEE_SALARY                                    NUMBER
+ GRADE                                              CHAR(2)
+ TITLE                                              VARCHAR2(10)
+
+
+
+
+
+
+
+
+
+2 c)
+SQL>  SELECT COUNT(*) FROM EMPLOYEES WHERE EMPLOYEE_SALARY>(SELECT AVG(EMPLOYEE_SALARY) FROM EMPLOYEES);
+
+  COUNT(*)
+----------
+         4

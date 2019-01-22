@@ -1,0 +1,95 @@
+
+SQL> DROP TABLE SALGRADE;
+
+Table dropped.
+
+SQL> CREATE TABLE SALGRADE(GRADE CHAR(2),
+  2  MINSAL NUMBER(6),MAXSAL NUMBER(6),
+  3  PRIMARY KEY(GRADE));
+
+Table created.
+
+SQL> INSERT INTO SALGRADE VALUES('A',10000,20000);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE VALUES('B',20001,40000);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE VALUES('C',40001,60000);
+
+1 row created.
+
+
+SQL> SELECT * FROM SALGRADE;
+
+GR     MINSAL     MAXSAL
+-- ---------- ----------
+A       10000      20000
+B       20001      40000
+C       40001      60000
+
+
+SQL> DROP TABLE EMPLOYEES;
+DROP TABLE EMPLOYEES
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> CREATE TABLE EMPLOYEES(EMPLOYEE_CODE NUMBER,EMPLOYEE_NAME VARCHAR2(15),
+  2  DATE_OF_JOINING DATE,EMPLOYEE_SALARY NUMBER,GRADE CHAR(2),
+  3  PRIMARY KEY(EMPLOYEE_CODE),FOREIGN KEY(GRADE) REFERENCES SALGRADE(GRADE));
+
+Table created.
+
+SQL> SELECT * FROM EMPLOYEES;
+
+no rows selected
+
+SQL> INSERT INTO EMPLOYEES VALUES(101,'Preetham','10-JAN-2010',18000,'A');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(102,'Aakash','10-NOV-2005',48000,'C');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(103,'Kishore','19-DEC-2011',21000,'B');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(104,'Reena','23-JUN-2006',42000,'C');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(105,'kAILASH','5-FEB-2004',46000,'C');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(106,'Sahana','18-NOV-2003',52000,'C');
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEES VALUES(107,'Keerthana','25-JUL-2006',27000,'B');
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEES;
+
+EMPLOYEE_CODE EMPLOYEE_NAME   DATE_OF_J EMPLOYEE_SALARY GR
+------------- --------------- --------- --------------- --
+          101 Preetham        10-JAN-10           18000 A
+          102 Aakash          10-NOV-05           48000 C
+          103 Kishore         19-DEC-11           21000 B
+          104 Reena           23-JUN-06           42000 C
+          105 kAILASH         05-FEB-04           46000 C
+          106 Sahana          18-NOV-03           52000 C
+          107 Keerthana       25-JUL-06           27000 B
+
+7 rows selected.
+
+SQL> CREATE SEQUENCE EMPCODE_SEQ START WITH 108;
+
+Sequence created.

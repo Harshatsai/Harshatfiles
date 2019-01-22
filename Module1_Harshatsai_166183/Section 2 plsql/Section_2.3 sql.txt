@@ -1,0 +1,28 @@
+2.3)
+SQL> insert into employees values(empCode_Seq.nextVal,'&employee_name',&date_of_joining,'&salary','&grade','&title');
+Enter value for employee_name: Harshat
+Enter value for date_of_joining: sysdate
+Enter value for salary: 50000
+Enter value for grade: A
+Enter value for title: Manager
+old   1: insert into employees values(empCode_Seq.nextVal,'&employee_name',&date_of_joining,'&salary','&grade','&title')
+new   1: insert into employees values(empCode_Seq.nextVal,'Harshat',sysdate,'50000','A','Manager')
+
+1 row created.
+
+
+
+SQL> select * from employees;
+
+EMPLOYEE_CODE EMPLOYEE_NAME   DATE_OF_J EMPLOYEE_SALARY GR TITLE
+------------- --------------- --------- --------------- -- ----------
+          101 Preetham        10-JAN-10           18000 A
+          102 Aakash          10-NOV-05           48000 C
+          103 Kishore         19-DEC-11           21000 B
+          104 Reena           23-JUN-06           42000 C
+          105 kAILASH         05-FEB-04           46000 C
+          106 Sahana          18-NOV-03           52000 C
+          107 Keerthana       25-JUL-06           27000 B
+          110 Harshat         13-DEC-18           50000 A  Manager
+
+8 rows selected.
